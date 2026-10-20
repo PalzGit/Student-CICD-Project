@@ -15,6 +15,6 @@ spec:
     spec:
       containers:
         - name: student-portal
-         image: palomapoduval/student-cicd:v1
+          image: palomapoduval/student-cicd:latest
           ports:
             - containerPort: 5000
