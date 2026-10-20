@@ -14,6 +14,7 @@ pipeline {
     }
 
     environment {
+        PATH+KUBECTL = '/usr/local/bin'
         IMAGE_REPOSITORY = 'palomapoduval/student-cicd'
         DOCKERHUB_CREDENTIALS = 'dockerhub-creds'
         IMAGE_BUILD = "${IMAGE_REPOSITORY}:${BUILD_NUMBER}"
