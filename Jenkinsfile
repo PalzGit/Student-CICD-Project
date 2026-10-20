@@ -14,7 +14,6 @@ pipeline {
     }
 
     environment {
-        PATH+KUBECTL = '/usr/local/bin'
         IMAGE_REPOSITORY = 'palomapoduval/student-cicd'
         DOCKERHUB_CREDENTIALS = 'dockerhub-creds'
         IMAGE_BUILD = "${IMAGE_REPOSITORY}:${BUILD_NUMBER}"
@@ -66,7 +65,8 @@ pipeline {
 
         stage('Deploy to Minikube') {
             steps {
-                sh '''
+                withEnv(['PATH+KUBECTL=/usr/local/bin']) {
+                    sh '''
                     test -d "$K8S_MANIFEST_DIR" || {
                       echo "Kubernetes manifest directory '$K8S_MANIFEST_DIR' was not found. Confirm Member 3's manifest path and update the build parameter."
                       exit 1
@@ -83,7 +83,8 @@ pipeline {
                       --namespace "$K8S_NAMESPACE" \
                       --timeout=180s
                     kubectl get pods,services --namespace "$K8S_NAMESPACE"
-                '''
+                    '''
+                }
             }
         }
     }
