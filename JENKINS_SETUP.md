@@ -14,7 +14,7 @@ This project pipeline is stored in the root `Jenkinsfile`. Jenkins should load i
 
 In **Manage Jenkins → Credentials → System → Global credentials → Add Credentials**, add a **Username with password** credential:
 
-- Username: Docker Hub username for the account that can push to `palomapoduval1/student-cicd`
+- Username: Docker Hub username for the account that can push to `palomapoduval/student-cicd`
 - Password: a Docker Hub access token with the minimum permissions needed to push
 - ID: `dockerhub-creds`
 
@@ -41,7 +41,7 @@ The deployment stage defaults to:
 - Deployment: `student-portal`
 - Container: `student-portal`
 
-Set these build parameters to match Member 3's YAML if their resource names change. The current Deployment manifest references `palomapoduval1/student-cicd:latest`; the pipeline updates its image to the current Jenkins build tag.
+Set these build parameters to match Member 3's YAML if their resource names change. The current Deployment manifest references `palomapoduval/student-cicd:latest`; the pipeline updates its image to the current Jenkins build tag.
 
 ## Evidence for the lab
 

@@ -14,7 +14,7 @@ pipeline {
     }
 
     environment {
-        IMAGE_REPOSITORY = 'palomapoduval1/student-cicd'
+        IMAGE_REPOSITORY = 'palomapoduval/student-cicd'
         DOCKERHUB_CREDENTIALS = 'dockerhub-creds'
         IMAGE_BUILD = "${IMAGE_REPOSITORY}:${BUILD_NUMBER}"
         IMAGE_LATEST = "${IMAGE_REPOSITORY}:latest"
