@@ -1,0 +1,20 @@
+
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: student-portal
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: student-portal
+  template:
+    metadata:
+      labels:
+        app: student-portal
+    spec:
+      containers:
+        - name: student-portal
+         image: palomapoduval/student-cicd:v1
+          ports:
+            - containerPort: 5000
